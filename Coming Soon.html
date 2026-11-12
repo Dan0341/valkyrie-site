@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Valkyrie Strategic Solutions | Coming soon and capability statement</title>
+<meta name="description" content="Valkyrie Strategic Solutions LLC is a veteran-owned Florida firm delivering strategic management, analytics, and operational support to public-sector agencies and their contracting partners. Our full website is coming soon.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Source+Serif+4:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  box-sizing:border-box;
+  --paper:#EFF3F2; --surface:#FFFFFF; --surface-2:#E3EAE8;
+  --ink:#0F2230; --steel:#4A6173; --line:#C5D1CF;
+  --sea:#0B6E66; --sea-ink:#FFFFFF; --sand:#E3D7B8; --sand-ink:#3B3319;
+  --header:rgba(239,243,242,.92);
+  --head:'Archivo','Helvetica Neue',Arial,sans-serif;
+  --body:'Source Serif 4',Georgia,'Times New Roman',serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#0D1A22; --surface:#13242E; --surface-2:#1A2F3B;
+    --ink:#E8EEF0; --steel:#9FB3BF; --line:#2A404D;
+    --sea:#4FC1B5; --sea-ink:#06241F; --sand:#3A3626; --sand-ink:#E9DFC2;
+    --header:rgba(13,26,34,.92);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0D1A22; --surface:#13242E; --surface-2:#1A2F3B;
+  --ink:#E8EEF0; --steel:#9FB3BF; --line:#2A404D;
+  --sea:#4FC1B5; --sea-ink:#06241F; --sand:#3A3626; --sand-ink:#E9DFC2;
+  --header:rgba(13,26,34,.92);
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);background:var(--paper);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--header);z-index:30}
+h1,h2,h3{font-family:var(--head);line-height:1.12;margin:0;letter-spacing:-.02em}
+h1{font-size:clamp(2.2rem,5vw,3.6rem);font-weight:800}
+h2{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800}
+h3{font-size:1.02rem;font-weight:800;letter-spacing:-.005em}
+p{margin:0 0 .9rem;max-width:64ch}
+a{color:inherit}
+.wrap{width:min(1120px,100% - 2.5rem);margin-inline:auto}
+:focus-visible{outline:3px solid var(--sea);outline-offset:3px;border-radius:4px}
+
+header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:var(--header);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:64px}
+.brand{display:flex;align-items:center;gap:.65rem;text-decoration:none;font-family:var(--head);font-weight:800;letter-spacing:-.01em;line-height:1.15}
+.brand svg{width:34px;height:34px;flex:none}
+.brand small{display:block;font-weight:500;font-size:.72rem;color:var(--steel);letter-spacing:0}
+.tools{display:flex;align-items:center;gap:.5rem}
+.tools a.lnk{font-family:var(--head);font-weight:500;font-size:.92rem;text-decoration:none;padding:.5rem .8rem;border-radius:999px;color:var(--steel)}
+.tools a.lnk:hover{background:var(--surface-2);color:var(--ink)}
+.icon-btn{border:1px solid var(--line);background:var(--surface);color:var(--ink);width:40px;height:40px;border-radius:50%;cursor:pointer;display:grid;place-items:center}
+.icon-btn svg{width:18px;height:18px}
+.btn{display:inline-block;font-family:var(--head);font-weight:700;font-size:.98rem;text-decoration:none;padding:.8rem 1.3rem;border-radius:8px;border:2px solid var(--ink);cursor:pointer;background:transparent;color:var(--ink);transition:transform .15s,background .2s}
+.btn.primary{background:var(--sea);border-color:var(--sea);color:var(--sea-ink)}
+.btn.primary:hover{transform:translateY(-2px)}
+.btn.ghost:hover{background:var(--surface-2)}
+.btn.small{padding:.5rem .9rem;font-size:.88rem}
+@media (max-width:720px){.tools a.lnk{display:none}}
+
+/* under construction banner */
+.tape{height:10px;background:repeating-linear-gradient(-45deg,var(--sea) 0 16px,var(--sand) 16px 32px)}
+.hero{padding:clamp(2.5rem,6vw,4.5rem) 0 clamp(2rem,4vw,3rem)}
+.hero-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(1.5rem,4vw,3.5rem);align-items:center}
+.hero p.lede{font-size:1.18rem;color:var(--steel);margin:1.3rem 0 1.7rem}
+.cta{display:flex;flex-wrap:wrap;gap:.8rem}
+.status{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.3rem 1.4rem}
+.status h2{font-size:1.1rem;margin-bottom:.9rem}
+.status ul{list-style:none;margin:0;padding:0;display:grid;gap:.7rem}
+.status li{display:grid;grid-template-columns:auto 1fr;gap:.2rem .7rem;align-items:baseline;font-size:.98rem}
+.status .dot{width:10px;height:10px;border-radius:50%;background:var(--sea);transform:translateY(1px)}
+.status .dot.wip{background:#C58A1B}
+.status b{font-family:var(--head);font-size:.95rem}
+.status small{grid-column:2;color:var(--steel);font-size:.88rem}
+@media (max-width:860px){.hero-grid{grid-template-columns:1fr}}
+
+/* capability statement */
+.statement{padding:clamp(1.5rem,4vw,3rem) 0 clamp(3rem,6vw,5rem)}
+.sheet{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:clamp(1.3rem,3.5vw,2.8rem);box-shadow:0 24px 50px -32px rgba(15,34,48,.5)}
+.sheet-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:1rem;padding-bottom:1.3rem;border-bottom:3px solid var(--sea);margin-bottom:1.6rem}
+.sheet-top .nm{display:flex;align-items:center;gap:.9rem}
+.sheet-top svg{width:46px;height:46px;flex:none}
+.sheet-top h2{font-size:clamp(1.5rem,3vw,2.1rem)}
+.sheet-top p{margin:.25rem 0 0;color:var(--steel);font-size:1rem}
+.sheet-top .upd{font-family:var(--head);font-size:.82rem;color:var(--steel);margin:0}
+.sheet-grid{display:grid;grid-template-columns:1.7fr 1fr;gap:clamp(1.3rem,3vw,2.4rem)}
+.sheet section{margin-bottom:1.7rem}
+.sheet h3.sec{font-size:.95rem;color:var(--sea);margin-bottom:.7rem;padding-bottom:.35rem;border-bottom:1px solid var(--line)}
+.comp{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+.comp div{background:var(--paper);border-radius:10px;padding:.8rem .95rem;break-inside:avoid}
+.comp b{display:block;font-family:var(--head);font-size:.95rem;margin-bottom:.15rem}
+.comp span{font-size:.92rem;color:var(--steel);line-height:1.45;display:block}
+.sheet ul{margin:0;padding-left:1.1rem}
+.sheet li{margin-bottom:.5rem;font-size:.98rem}
+.sheet li b{font-family:var(--head);font-size:.95rem}
+.side .box{background:var(--paper);border-radius:12px;padding:1.05rem 1.15rem;margin-bottom:1rem;break-inside:avoid}
+.side h3{margin-bottom:.65rem;font-size:.92rem;color:var(--sea)}
+dl{margin:0;display:grid;gap:.55rem;font-size:.92rem;line-height:1.4}
+dt{font-family:var(--head);font-weight:700;font-size:.78rem;color:var(--steel)}
+dd{margin:0}
+.side p{font-size:.92rem;margin-bottom:.55rem}
+details{margin-top:.6rem;font-size:.86rem}
+summary{cursor:pointer;font-family:var(--head);font-weight:700;font-size:.85rem}
+details ul{margin:.5rem 0 0;padding-left:1rem}
+details li{font-size:.82rem;margin-bottom:.25rem;line-height:1.35}
+.copy-row{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.7rem}
+.fine{font-size:.82rem;color:var(--steel);margin:1rem 0 0}
+@media (max-width:860px){.sheet-grid{grid-template-columns:1fr}.comp{grid-template-columns:1fr}}
+
+footer{border-top:1px solid var(--line);padding:1.8rem 0 2.2rem;color:var(--steel);font-size:.9rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem}
+footer p{margin:0}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* print: capability statement only, always light */
+@page{size:letter;margin:.5in}
+@media print{
+  :root:root:root:root{--paper:#F3F5F5;--surface:#fff;--surface-2:#E3EAE8;--ink:#0F2230;--steel:#3E5262;--line:#C5D1CF;--sea:#0B6E66;color-scheme:light}
+  header.site,.tape,.hero,footer,.noprint,body::before{display:none!important}
+  body{background:#fff;font-size:10pt;line-height:1.45;padding:0}
+  .wrap{width:100%}
+  .statement{padding:0}
+  .sheet{border:0;box-shadow:none;padding:0;border-radius:0}
+  .sheet-grid{grid-template-columns:1.7fr 1fr;gap:1.2rem}
+  .comp{grid-template-columns:1fr 1fr;gap:.4rem}
+  .comp div,.side .box{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .sheet section{margin-bottom:1rem}
+  .sheet li{font-size:9.5pt;margin-bottom:.3rem}
+  .comp span{font-size:8.8pt}
+  .sheet-top{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  a{text-decoration:none}
+}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap bar">
+    <a class="brand" href="#top" aria-label="Valkyrie Strategic Solutions, top of page">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="9" fill="var(--ink)"/><path d="M7 11 L19 31 L19 20 Z" fill="var(--sea)"/><path d="M33 11 L21 31 L21 20 Z" fill="var(--sand)"/></svg>
+      <span>Valkyrie<small>Strategic Solutions</small></span>
+    </a>
+    <div class="tools">
+      <a class="lnk" href="#statement">Capability statement</a>
+      <a class="lnk" href="#contact">Contact</a>
+      <button class="icon-btn" id="theme" type="button" aria-label="Switch between light and dark mode">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+<div class="tape" aria-hidden="true"></div>
+
+<main id="top">
+<section class="hero noprint">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>Our full website is coming soon.</h1>
+      <p class="lede">Valkyrie Strategic Solutions is a veteran-owned Florida firm delivering strategic management, analytics, and operational support to public-sector agencies and their contracting partners. Our capability statement is available below while the full site is completed.</p>
+      <div class="cta">
+        <a class="btn primary" href="#statement">Read our capability statement</a>
+        <button class="btn ghost" type="button" id="print-top">Save as PDF</button>
+      </div>
+    </div>
+    <div class="status" aria-label="Current status">
+      <h2>Where things stand</h2>
+      <ul>
+        <li><span class="dot" aria-hidden="true"></span><b>Capability statement</b><small>Available now, below</small></li>
+        <li><span class="dot wip" aria-hidden="true"></span><b>Full website</b><small>In development</small></li>
+        <li><span class="dot wip" aria-hidden="true"></span><b>Federal and state registrations</b><small>In progress</small></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="statement" id="statement">
+  <div class="wrap">
+    <article class="sheet">
+      <div class="sheet-top">
+        <div class="nm">
+          <svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="9" fill="var(--ink)"/><path d="M7 11 L19 31 L19 20 Z" fill="var(--sea)"/><path d="M33 11 L21 31 L21 20 Z" fill="var(--sand)"/></svg>
+          <div>
+            <h2>Valkyrie Strategic Solutions LLC</h2>
+            <p>Strategic management, analytics, and operational support for the public sector</p>
+          </div>
+        </div>
+        <p class="upd">Capability statement · November 2026</p>
+      </div>
+
+      <div class="sheet-grid">
+        <div>
+          <section>
+            <h3 class="sec">Who we are</h3>
+            <p>Valkyrie Strategic Solutions is a veteran-owned Florida company that provides strategic management, data analytics, and operational support to local, state, and federal agencies and the prime contractors who serve them. We pair rigorous analysis with disciplined execution to improve planning, align resources, strengthen procurement, and support informed decision-making. Every engagement concludes with training, so client teams can sustain the results independently.</p>
+          </section>
+
+          <section>
+            <h3 class="sec">Core competencies</h3>
+            <div class="comp">
+              <div><b>Strategic management and planning</b><span>Strategic plans, performance frameworks, and program evaluation.</span></div>
+              <div><b>Analytics and reporting</b><span>Data analysis, dashboards, and recurring reports that support evidence-based decisions.</span></div>
+              <div><b>Territory and resource alignment</b><span>Analysis-driven alignment of territories, workload, and resources.</span></div>
+              <div><b>Operations and scheduling</b><span>Workflow design, capacity planning, and scheduling support.</span></div>
+              <div><b>Procurement support</b><span>Support for procurement planning, documentation, and tracking.</span></div>
+              <div><b>Training and development</b><span>Instructional programs for sales, field, and operations personnel.</span></div>
+              <div><b>Property and asset management</b><span>Asset inventories, lease and contract calendars, and maintenance planning.</span></div>
+              <div><b>Program and project management</b><span>Multi-year planning, milestone tracking, and budget oversight.</span></div>
+            </div>
+          </section>
+
+          <section>
+            <h3 class="sec">Representative experience</h3>
+            <ul>
+              <li><b>National territory alignment, oncology and pathology.</b> Physician-level analysis supporting the evaluation and balancing of territories across a national footprint.</li>
+              <li><b>Root cause analysis.</b> Systematic investigation of data and process discrepancies, with findings and corrective actions documented.</li>
+              <li><b>Documentation and validation.</b> Documented methodology and multi-step validation, including record reconciliation, so results are accurate, repeatable, and auditable.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3 class="sec">Why Valkyrie</h3>
+            <ul>
+              <li><b>Integrity.</b> Objective, accurate findings, reported plainly.</li>
+              <li><b>Communication.</b> Consistent, transparent reporting on scope, schedule, and cost.</li>
+              <li><b>Experience.</b> Senior-level expertise applied directly to every engagement.</li>
+              <li><b>After-sale support.</b> Complimentary end-user training for three months following delivery, including virtual instruction, archived recordings, individual sessions, and expert-led onsite training.</li>
+            </ul>
+          </section>
+        </div>
+
+        <aside class="side">
+          <div class="box">
+            <h3>Company snapshot</h3>
+            <dl>
+              <div><dt>Legal name</dt><dd>Valkyrie Strategic Solutions LLC</dd></div>
+              <div><dt>Structure</dt><dd>Florida limited liability company</dd></div>
+              <div><dt>Ownership</dt><dd>Veteran-owned small business. Service-disabled veteran certification in progress.</dd></div>
+              <div><dt>Federal registration</dt><dd>SAM.gov registration in progress</dd></div>
+              <div><dt>State registration</dt><dd>Registered vendor, MyFloridaMarketPlace. Disabled veteran business certification pending.</dd></div>
+              <div><dt>Location</dt><dd>Fort Myers, Florida</dd></div>
+              <div><dt>Customers</dt><dd>Local, state, and federal agencies. Prime contractors seeking teaming and subcontracting partners.</dd></div>
+            </dl>
+          </div>
+
+          <div class="box">
+            <h3>Classifications</h3>
+            <dl>
+              <div><dt>Primary NAICS</dt><dd>541611 Administrative Management and General Management Consulting Services</dd></div>
+              <div><dt>Secondary NAICS</dt><dd>541690 Other Scientific and Technical Consulting Services</dd></div>
+            </dl>
+            <details>
+              <summary>State commodity codes (MFMP)</summary>
+              <ul>
+                <li>80101500 Business and corporate management consultation</li>
+                <li>80101504 Strategic planning consultation</li>
+                <li>80101507 Information technology consultation</li>
+                <li>80101508 Business intelligence consulting</li>
+                <li>80101513 Process and procedures management consultation</li>
+                <li>80101600 Project management</li>
+                <li>80101606 Project monitoring and evaluation</li>
+                <li>80101607 Project impact assessment</li>
+                <li>81112000 Data services</li>
+                <li>81112002 Data processing or preparation</li>
+                <li>81112007 Content or data standardization</li>
+                <li>81131500 Methodology and analysis</li>
+                <li>81131503 Regression analysis</li>
+                <li>81131504 Sampling surveys</li>
+                <li>80141500 Market research</li>
+              </ul>
+            </details>
+          </div>
+
+          <div class="box" id="contact">
+            <h3>Contact</h3>
+            <p><a href="mailto:dan@flvss.com">dan@flvss.com</a><br><a href="tel:+12394649837">(239) 464-9837</a><br>valkyriestrategicsolutions.com</p>
+            <div class="copy-row noprint">
+              <a class="btn primary small" href="mailto:dan@flvss.com?subject=Valkyrie%20Strategic%20Solutions%20inquiry">Email us</a>
+              <button class="btn ghost small" type="button" id="copy">Copy email</button>
+            </div>
+            <p class="noprint fine" id="copied" role="status"></p>
+          </div>
+        </aside>
+      </div>
+      <div class="noprint" style="margin-top:.5rem;display:flex;flex-wrap:wrap;gap:.7rem;align-items:center">
+        <button class="btn primary" type="button" id="print-bottom">Save this page as a PDF</button>
+        <span class="fine" style="margin:0">Choose “Save as PDF” in your print window. The page prints as a clean one- to two-page statement.</span>
+      </div>
+    </article>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 Valkyrie Strategic Solutions LLC. Fort Myers, Florida.</p>
+    <p>Veteran-owned. Full website in development.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  document.getElementById('theme').addEventListener('click',function(){
+    var dark=root.getAttribute('data-theme')==='dark'||(!root.getAttribute('data-theme')&&matchMedia('(prefers-color-scheme: dark)').matches);
+    root.setAttribute('data-theme',dark?'light':'dark');
+  });
+  function doPrint(){window.print();}
+  document.getElementById('print-top').addEventListener('click',doPrint);
+  document.getElementById('print-bottom').addEventListener('click',doPrint);
+  window.addEventListener('beforeprint',function(){
+    [].forEach.call(document.querySelectorAll('details'),function(d){d.setAttribute('data-was',d.open?'1':'0');d.open=true;});
+  });
+  window.addEventListener('afterprint',function(){
+    [].forEach.call(document.querySelectorAll('details'),function(d){d.open=d.getAttribute('data-was')==='1';});
+  });
+  document.getElementById('copy').addEventListener('click',function(){
+    var msg=document.getElementById('copied'),addr='dan@flvss.com';
+    function ok(){msg.textContent='Copied '+addr+' to your clipboard.';}
+    function fail(){msg.textContent='Copy did not work here. Our email is '+addr+'.';}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(addr).then(ok,fail);}else{fail();}
+  });
+})();
+</script>
+</body>
+</html>
