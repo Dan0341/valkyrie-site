@@ -114,6 +114,36 @@ details li{font-size:.82rem;margin-bottom:.25rem;line-height:1.35}
 .fine{font-size:.82rem;color:var(--steel);margin:1rem 0 0}
 @media (max-width:860px){.sheet-grid{grid-template-columns:1fr}.comp{grid-template-columns:1fr}}
 
+/* inquiry form */
+.inquiry{padding:0 0 clamp(3rem,6vw,5rem)}
+.inq-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:clamp(1.5rem,4vw,3.5rem);align-items:start}
+.inq-intro p{color:var(--steel)}
+.inq-intro ul{margin:1rem 0 0;padding:0;list-style:none;display:grid;gap:.55rem;font-size:.96rem}
+.inq-intro li{display:flex;gap:.6rem;align-items:baseline}
+.inq-intro li::before{content:"";width:8px;height:8px;border-radius:2px;background:var(--sea);flex:none;transform:translateY(-1px)}
+form.inq{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:clamp(1.2rem,3vw,2rem);display:grid;grid-template-columns:1fr 1fr;gap:1rem 1.1rem}
+.fld{display:grid;gap:.35rem;min-width:0}
+.fld.full{grid-column:1/-1}
+.fld label{font-family:var(--head);font-weight:700;font-size:.85rem}
+.fld label span{font-weight:500;color:var(--steel)}
+.fld input,.fld select,.fld textarea{font:inherit;font-size:1rem;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:.7rem .8rem;width:100%}
+.fld textarea{min-height:8.5rem;resize:vertical}
+.fld input:focus,.fld select:focus,.fld textarea:focus{outline:3px solid var(--sea);outline-offset:1px;border-color:var(--sea)}
+.fld [aria-invalid="true"]{border-color:#C0392B}
+.fld .err{color:#C0392B;font-size:.82rem;min-height:0}
+:root[data-theme="dark"] .fld .err,:root[data-theme="dark"] .inq-msg.bad{color:#FF8A7A}
+:root[data-theme="dark"] .fld [aria-invalid="true"]{border-color:#FF8A7A}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .fld .err,:root:not([data-theme="light"]) .inq-msg.bad{color:#FF8A7A}:root:not([data-theme="light"]) .fld [aria-invalid="true"]{border-color:#FF8A7A}}
+.hp{position:absolute!important;left:-9999px;width:1px;height:1px;overflow:hidden}
+.inq-foot{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:.8rem 1rem;align-items:center}
+.inq-foot .btn[disabled]{opacity:.6;cursor:wait;transform:none}
+.inq-msg{margin:0;font-size:.95rem}
+.inq-msg.ok{color:var(--sea);font-family:var(--head);font-weight:700}
+.inq-msg.bad{color:#C0392B}
+.inq-legal{grid-column:1/-1;margin:0;font-size:.8rem;color:var(--steel);max-width:none}
+@media (max-width:860px){.inq-grid{grid-template-columns:1fr}}
+@media (max-width:560px){form.inq{grid-template-columns:1fr}}
+
 footer{border-top:1px solid var(--line);padding:1.8rem 0 2.2rem;color:var(--steel);font-size:.9rem}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem}
 footer p{margin:0}
@@ -149,7 +179,7 @@ footer p{margin:0}
     </a>
     <div class="tools">
       <a class="lnk" href="#statement">Capability statement</a>
-      <a class="lnk" href="#contact">Contact</a>
+      <a class="lnk" href="#inquiry">Contact</a>
       <button class="icon-btn" id="theme" type="button" aria-label="Switch between light and dark mode">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
       </button>
@@ -281,7 +311,7 @@ footer p{margin:0}
             <h3>Contact</h3>
             <p><a href="mailto:dan@flvss.com">dan@flvss.com</a><br><a href="tel:+12394649837">(239) 464-9837</a><br>valkyriestrategicsolutions.com</p>
             <div class="copy-row noprint">
-              <a class="btn primary small" href="mailto:dan@flvss.com?subject=Valkyrie%20Strategic%20Solutions%20inquiry">Email us</a>
+              <a class="btn primary small" href="#inquiry">Send an inquiry</a>
               <button class="btn ghost small" type="button" id="copy">Copy email</button>
             </div>
             <p class="noprint fine" id="copied" role="status"></p>
@@ -293,6 +323,71 @@ footer p{margin:0}
         <span class="fine" style="margin:0">Choose “Save as PDF” in your print window. The page prints as a clean one- to two-page statement.</span>
       </div>
     </article>
+  </div>
+</section>
+
+<section class="inquiry noprint" id="inquiry" aria-labelledby="inq-title">
+  <div class="wrap inq-grid">
+    <div class="inq-intro">
+      <h2 id="inq-title">Start a conversation</h2>
+      <p style="margin-top:1rem">Tell us about your agency, program, or teaming opportunity. We respond to every inquiry within two business days.</p>
+      <ul>
+        <li>Agency and program support</li>
+        <li>Teaming and subcontracting with prime contractors</li>
+        <li>Analytics, planning, and training engagements</li>
+      </ul>
+    </div>
+
+    <form class="inq" id="inq-form" novalidate>
+      <div class="fld">
+        <label for="f-first">First name</label>
+        <input id="f-first" name="firstname" autocomplete="given-name" required>
+        <span class="err" id="e-first"></span>
+      </div>
+      <div class="fld">
+        <label for="f-last">Last name</label>
+        <input id="f-last" name="lastname" autocomplete="family-name" required>
+        <span class="err" id="e-last"></span>
+      </div>
+      <div class="fld">
+        <label for="f-email">Work email</label>
+        <input id="f-email" name="email" type="email" autocomplete="email" required>
+        <span class="err" id="e-email"></span>
+      </div>
+      <div class="fld">
+        <label for="f-phone">Phone <span>(optional)</span></label>
+        <input id="f-phone" name="phone" type="tel" autocomplete="tel">
+      </div>
+      <div class="fld">
+        <label for="f-company">Organization</label>
+        <input id="f-company" name="company" autocomplete="organization" required>
+        <span class="err" id="e-company"></span>
+      </div>
+      <div class="fld">
+        <label for="f-type">Inquiry type</label>
+        <select id="f-type" name="inquiry_type">
+          <option>Agency or program support</option>
+          <option>Teaming or subcontracting</option>
+          <option>Analytics or reporting</option>
+          <option>Training</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="fld full">
+        <label for="f-msg">How can we help?</label>
+        <textarea id="f-msg" name="message" required></textarea>
+        <span class="err" id="e-msg"></span>
+      </div>
+      <div class="hp" aria-hidden="true">
+        <label for="f-website">Leave this field empty</label>
+        <input id="f-website" name="website" tabindex="-1" autocomplete="off">
+      </div>
+      <div class="inq-foot">
+        <button class="btn primary" type="submit" id="inq-submit">Send inquiry</button>
+        <p class="inq-msg" id="inq-msg" role="status" aria-live="polite"></p>
+      </div>
+      <p class="inq-legal">We use your information only to respond to your inquiry. We do not sell or share it.</p>
+    </form>
   </div>
 </section>
 </main>
@@ -325,6 +420,89 @@ footer p{margin:0}
     function ok(){msg.textContent='Copied '+addr+' to your clipboard.';}
     function fail(){msg.textContent='Copy did not work here. Our email is '+addr+'.';}
     if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(addr).then(ok,fail);}else{fail();}
+  });
+})();
+
+/* Inquiry form -> HubSpot Forms API.
+   Set HS_FORM_GUID to the form ID from HubSpot (Marketing > Forms > your form > Share/Embed).
+   While it is empty, the form opens a pre-filled email instead. */
+(function(){
+  var HS_PORTAL_ID='247983359';
+  var HS_FORM_GUID='';
+  var FALLBACK_EMAIL='dan@flvss.com';
+
+  var form=document.getElementById('inq-form');
+  var btn=document.getElementById('inq-submit');
+  var msg=document.getElementById('inq-msg');
+  var checks=[
+    ['f-first','e-first','Enter your first name.'],
+    ['f-last','e-last','Enter your last name.'],
+    ['f-email','e-email','Enter a valid email address.'],
+    ['f-company','e-company','Enter your organization.'],
+    ['f-msg','e-msg','Tell us briefly how we can help.']
+  ];
+  function val(id){return document.getElementById(id).value.trim();}
+  function setMsg(text,cls){msg.textContent=text;msg.className='inq-msg'+(cls?' '+cls:'');}
+  function validate(){
+    var first=null;
+    checks.forEach(function(c){
+      var el=document.getElementById(c[0]),err=document.getElementById(c[1]);
+      var bad=!el.value.trim()||(el.type==='email'&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value.trim()));
+      el.setAttribute('aria-invalid',bad?'true':'false');
+      if(bad){el.setAttribute('aria-describedby',c[1]);}else{el.removeAttribute('aria-describedby');}
+      err.textContent=bad?c[2]:'';
+      if(bad&&!first)first=el;
+    });
+    if(first)first.focus();
+    return !first;
+  }
+  checks.forEach(function(c){
+    document.getElementById(c[0]).addEventListener('input',function(){
+      if(this.getAttribute('aria-invalid')==='true'&&this.value.trim()){
+        this.setAttribute('aria-invalid','false');this.removeAttribute('aria-describedby');
+        document.getElementById(c[1]).textContent='';
+      }
+    });
+  });
+  function cookie(name){var m=document.cookie.match('(?:^|; )'+name+'=([^;]*)');return m?decodeURIComponent(m[1]):'';}
+
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(val('f-website'))return; // bot trap
+    if(!validate()){setMsg('Please fix the highlighted fields.','bad');return;}
+
+    var type=document.getElementById('f-type').value;
+    var message='Inquiry type: '+type+'\n\n'+val('f-msg');
+
+    if(!HS_FORM_GUID){
+      var body='Name: '+val('f-first')+' '+val('f-last')+'\nOrganization: '+val('f-company')+'\nEmail: '+val('f-email')+(val('f-phone')?'\nPhone: '+val('f-phone'):'')+'\n\n'+message;
+      location.href='mailto:'+FALLBACK_EMAIL+'?subject='+encodeURIComponent('Inquiry: '+type)+'&body='+encodeURIComponent(body);
+      setMsg('Your email app should open with your message ready to send.','ok');
+      return;
+    }
+
+    var fields=[
+      {name:'firstname',value:val('f-first')},
+      {name:'lastname',value:val('f-last')},
+      {name:'email',value:val('f-email')},
+      {name:'company',value:val('f-company')},
+      {name:'message',value:message}
+    ];
+    if(val('f-phone'))fields.push({name:'phone',value:val('f-phone')});
+    var context={pageUri:location.href,pageName:document.title};
+    var hutk=cookie('hubspotutk');if(hutk)context.hutk=hutk;
+
+    btn.disabled=true;btn.textContent='Sending…';setMsg('');
+    fetch('https://api.hsforms.com/submissions/v3/integration/submit/'+HS_PORTAL_ID+'/'+HS_FORM_GUID,{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({fields:fields,context:context})
+    }).then(function(r){
+      if(!r.ok)throw new Error(r.status);
+      form.reset();
+      setMsg('Thank you. Your inquiry was received, and we will reply within two business days.','ok');
+    }).catch(function(){
+      setMsg('Something went wrong sending your inquiry. Please email '+FALLBACK_EMAIL+' directly.','bad');
+    }).then(function(){btn.disabled=false;btn.textContent='Send inquiry';});
   });
 })();
 </script>
